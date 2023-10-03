@@ -1,0 +1,20 @@
+# docker-compose -f mysql.yml up -d
+# docker rm -f my-mysql-container
+
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: my-mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: root
+      # MYSQL_USER: root
+      MYSQL_PASSWORD: root
+    ports:
+      - "3312:3306"
+
+# docker exec -it my-mysql-container bash
+# mysql -u username -p -h host database_name
+# mysql -u root -p -h localhost root

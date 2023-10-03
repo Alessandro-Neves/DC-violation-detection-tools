@@ -1,0 +1,18 @@
+# docker-compose -f postgres.yml up -d
+# docker rm -f my-postgres-container
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: my-postgres-container
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: root
+    ports:
+      - "5438:5432"
+
+# docker exec -it my-postgres-container bash
+# psql -U postgres_user -d postgres_db -h localhost -p 5432
+# psql -U root -d root -h localhost -p 5432

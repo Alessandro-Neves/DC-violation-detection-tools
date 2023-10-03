@@ -22,7 +22,7 @@ class DCDetector(IDCDetector):
       
       
     # print(sql_query)
-    # print(pairs[0])
+    # print(pairs)
     
     return pairs
   
