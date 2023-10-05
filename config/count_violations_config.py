@@ -5,7 +5,7 @@
 DC_FILE = 'testdatas/dcs/tax_dc4.txt'
 # DATASET_FILE = 'testdatas/clean_datasets/tax_100000.csv'
 # DATASET_FILE = 'tax_noisy_1.csv'
-DATASET_FILE = 'tax_100k_noisy_0.5.csv'
+DATASET_FILE = 'output_text.csv'
 
 
 # DC_FILE = 'testdatas/dcs/employees_dc.txt'
