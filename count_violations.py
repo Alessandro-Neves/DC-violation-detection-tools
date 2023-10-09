@@ -1,5 +1,4 @@
 import time, pandas
-from dcd.core.session import Session 
 from dcd.core.dc_reader import DCReader
 from dcd.duck.dc_detector import DCDetector as DuckDCDetector
 

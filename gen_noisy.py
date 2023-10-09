@@ -21,7 +21,7 @@ def generate_noisy(dataset_file, dc_file, noisy_percetage, output_file):
 
   desired_noisy_qtd = int(num_tuples * (noisy_percetage / 100))
 
-  NOISY_RANGE_ERROR = (desired_noisy_qtd * 0.1)
+  NOISY_RANGE_ERROR = (desired_noisy_qtd * 0.01)
 
   num_violations = 0
 
@@ -37,7 +37,7 @@ def generate_noisy(dataset_file, dc_file, noisy_percetage, output_file):
     idx1 = random.randint(0, num_tuples - 1)
     idx2 = random.randint(0, num_tuples - 1)
     
-    dft = novo_df = df.copy().loc[[idx1, idx2]]
+    dft = df.copy().loc[[idx1, idx2]]
     
     vio_qtd = DatasetOps.count_violations(dft, dc)
     
@@ -53,12 +53,25 @@ def generate_noisy(dataset_file, dc_file, noisy_percetage, output_file):
         # If 𝜌 ∈ {<, >, ≠}, change t[A] to another value from the active domain of the attribute such that 𝑃 is satisfied
         else: 
           if not predicate.operator == PREDICATE_OPERATOR.IQ:
-            continue
+            left_value = dfc.at[idx1, col_name_A]
+            right_value = dfc.at[idx2, col_name_B]
             
-          new_value = dfc.at[idx2, col_name_B] + 1 if predicate.operator == PREDICATE_OPERATOR.GT else -1
-          dfc.at[idx1, col_name_A] = new_value
+            if left_value == right_value:
+              new_value = left_value
+              while(1):
+                rand_idx = random.randint(0, num_tuples - 1)
+                rand_value = dfc.at[rand_idx, col_name_A]
+                if rand_value != new_value:
+                  new_value = rand_value
+                  break
+              
+              dfc.at[idx1, col_name_A] = new_value
+              
+          else: 
+            new_value = dfc.at[idx2, col_name_B] + 1 if predicate.operator == PREDICATE_OPERATOR.GT else -1
+            dfc.at[idx1, col_name_A] = new_value
           
-          print(col_name_A, new_value, col_name_B, vio_qtd_dfc)
+            # print(col_name_A, new_value, col_name_B, vio_qtd_dfc)
     
         vio_qtd_dfc = len(DatasetOps.tuples_on_violations(dfc, dc))
         

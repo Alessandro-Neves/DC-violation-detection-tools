@@ -2,10 +2,10 @@ import pandas as pd
 import random
 
 # Carrega o arquivo CSV
-nome_arquivo_entrada = 'testdatas/clean_datasets/flights_1000000.csv'
-nome_arquivo_saida = 'flights_100000.csv'
+nome_arquivo_entrada = 'testdatas/original_datasets/lineitem_1000000.csv'
+nome_arquivo_saida = 'testdatas/temp_datasets/lineitem_20000.csv'
 
-n_linhas_aleatorias = 100000  # Número de linhas aleatórias a serem selecionadas
+n_linhas_aleatorias = 20000  # Número de linhas aleatórias a serem selecionadas
 
 # Carrega o arquivo CSV para um DataFrame
 dataframe = pd.read_csv(nome_arquivo_entrada)
