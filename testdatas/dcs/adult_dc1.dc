@@ -1,0 +1,1 @@
+t1.Occupation = t2.Occupation,t1.HoursPerWeek = t2.HoursPerWeek,t1.Income <> t2.Income

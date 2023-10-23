@@ -11,9 +11,10 @@ ROOT_PATH = 'testdatas'
 configs = [
   # {'dataset': 'employees_40000.csv', 'dcs': ['employees_dc.txt']},
   # {'dataset': 'tax_1000000.csv', 'dcs': ['tax_dc1.txt', 'tax_dc2.txt', 'tax_dc3.txt', 'tax_dc4.txt']},
-  {'dataset': 'lineitem_250000.csv', 'dcs': ['lineitem_dc1.dc']},
+  # {'dataset': 'lineitem_250000.csv', 'dcs': ['lineitem_dc1.dc']},
   # {'dataset': 'lineorder_1000000.csv', 'dcs': ['lineorder_dc1.txt']},
   # {'dataset': 'flights_18000.csv', 'dcs': ['flights_dc1.dc', 'flights_dc2.dc']},
+  {'dataset': 'AdultFull.csv', 'dcs': ['adult_dc2.dc']},
   
 ]
 
